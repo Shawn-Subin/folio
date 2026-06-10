@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Your Name</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner container">
+      <div class="logo">Shawn</div>
+      <div class="nav-links">
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-btn" aria-label="Dark mode toggle">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-tag">Frontend Developer & Designer</p>
+        <h1 class="hero-name">Shawn</h1>
+        <p class="hero-role">Building thoughtful, pixel-perfect web experiences.</p>
+        <p class="hero-bio">
+          I'm a frontend developer who loves turning designs into clean, responsive code.
+          Based in your city — available for freelance and full-time work.
+        </p>
+        <div class="hero-cats">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#projects" class="btn">View projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-label">01 — Work</p>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+          <!-- Project 1: Tide -->
+          <article class="card reveal">
+            <span class="card-tag">UI / UX Design</span>
+            <h3 class="card-title">Tide</h3>
+            <p class="card-desc">A complete task-manager app design built in Figma: a token-based design system, seven screens, and a clickable prototype.</p>
+            <div class="card-meta">
+              <span class="chip">Figma</span>
+              <span class="chip">Design System</span>
+            </div>
+            <a href="https://www.figma.com/proto/mzOKXO59WFRMKNbLL81PGW/Tide-Task-Manager?node-id=1-558&t=laGi7GAkVt4vsVjt-1" target="_blank" rel="noopener" class="card-link">View prototype →</a>
+          </article>
+
+          <!-- Project 2: Folio (this site) -->
+          <article class="card reveal">
+            <span class="card-tag">Frontend Development</span>
+            <h3 class="card-title">Folio</h3>
+            <p class="card-desc">A fully responsive portfolio site with dark mode, scroll reveal, and back-to-top — built from scratch with HTML, CSS, and JS.</p>
+            <div class="card-meta">
+              <span class="chip">HTML/CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Responsive</span>
+            </div>
+            <a href="#" class="card-link">Live demo →</a>
+          </article>
+
+          <!-- Project 3: Pulse (future project) -->
+          <article class="card reveal">
+            <span class="card-tag">Python / Backend</span>
+            <h3 class="card-title">Pulse</h3>
+            <p class="card-desc">A health habit tracker bot built with Python — coming soon in Session 03. This slot is ready for your next big project.</p>
+            <div class="card-meta">
+              <span class="chip">Python</span>
+              <span class="chip">APIs</span>
+            </div>
+            <a href="#" class="card-link">Learn more →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-label">02 — Expertise</p>
+        <h2 class="section-title">Skills & tools</h2>
+        <div class="skills-list">
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">HTML &amp; CSS</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 90%; background: var(--pri-high);"></div>
+            </div>
+          </div>
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 75%; background: var(--pri-med);"></div>
+            </div>
+          </div>
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">Figma</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 85%; background: var(--pri-low);"></div>
+            </div>
+          </div>
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">React</span>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 60%; background: var(--pri-high);"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="section-label">03 — Connect</p>
+        <h2 class="section-title">Get in touch</h2>
+        <div class="contact-grid">
+          <a href="mailto:hello@yourname.com" class="contact-link btn">📧 shawnsubin@gmail.com</a>
+          <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener" class="contact-link btn">🐙 GitHub</a>
+          <a href="https://www.linkedin.com/in/shawn-subin-58728137b/" target="_blank" rel="noopener" class="contact-link btn">🔗 LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Shawn. Built with HTML, CSS, and ☕.</p>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="to-top" class="to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
