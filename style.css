@@ -692,6 +692,10 @@ body.dark .btn-primary {
   flex-direction: column;
 }
 
+.attendance-preview {
+  background: linear-gradient(135deg, #0B1E3D 0%, #0F172A 100%);
+}
+
 .tide-preview {
   background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
 }
@@ -749,51 +753,71 @@ body.dark .btn-primary {
   justify-content: center;
 }
 
-/* Tide UI Mock styling */
-.tide-ui-mock {
+/* Attendance Tracker UI Mock */
+.attendance-ui-mock {
   width: 90%;
   height: 90px;
   background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
+  padding: 12px 14px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.attendance-mock-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.attendance-mock-title {
+  height: 8px;
+  width: 75px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+}
+
+.attendance-mock-bar-wrap {
+  width: 100px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
   overflow: hidden;
 }
 
-.tide-sidebar {
-  width: 30%;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px;
+.attendance-mock-bar-fill {
+  width: 92%;
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #10B981);
+  border-radius: 999px;
+}
+
+.attendance-mock-tag {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: #FBBF24;
+  letter-spacing: 0.02em;
+}
+
+.attendance-mock-ring {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #10B981;
+  border-right-color: #3B82F6;
+  border-bottom-color: #10B981;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.tide-line {
-  height: 6px;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.tide-line.short { width: 50%; }
-
-.tide-main {
-  flex: 1;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.tide-card-item {
-  height: 18px;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.tide-card-item.accent {
-  background-color: #38BDF8;
-  opacity: 0.7;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10B981;
 }
 
 /* Folio UI Mock */
