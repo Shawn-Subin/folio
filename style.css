@@ -1511,7 +1511,24 @@ body.dark .btn-card-link:hover {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
+}
+
+.contact-card-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  display: inline-block;
+  word-break: break-all;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-card-value:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
 }
 
 .contact-card-desc {
