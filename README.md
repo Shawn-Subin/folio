@@ -9,16 +9,6 @@ A high-performance personal portfolio website built with modern CSS and vanilla 
 
 ---
 
-## 📸 Previews
-
-### 1. Portfolio Interface
-![Portfolio Preview](assets/portfolio_preview.jpg)
-
-### 2. Pulse Bot Automation Terminal
-![Pulse Bot Preview](assets/pulse_bot_preview.jpg)
-
----
-
 ## 🌟 Highlights
 
 ### 🎨 Personal Portfolio (`index.html`, `style.css`, `script.js`)
@@ -139,9 +129,6 @@ folio/
 ├── .github/
 │   └── workflows/
 │       └── daily.yml         # GitHub Actions cron workflow configuration
-├── assets/
-│   ├── portfolio_preview.jpg # Portfolio UI screenshot
-│   └── pulse_bot_preview.jpg # Pulse daemon terminal screenshot
 ├── .gitignore                # Git exclusions (pycache, virtualenvs, outputs)
 ├── bot.py                    # Pulse Python automation daemon
 ├── index.html                # Portfolio semantic HTML5 entry point
