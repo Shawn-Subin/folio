@@ -3,85 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Your Name</title>
+  <title>Shawn Subin | Frontend Developer & UI/UX Designer</title>
+  <meta name="description" content="Portfolio of Shawn Subin — Frontend Developer and UI/UX Designer crafting clean, high-performance, and delightful web experiences.">
+  <meta name="keywords" content="Frontend Developer, UI UX Designer, Web Developer, JavaScript, CSS, HTML, React, Portfolio">
+  <meta name="author" content="Shawn Subin">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shawn Subin | Frontend Developer & Designer">
+  <meta property="og:description" content="Crafting thoughtful, pixel-perfect web experiences with modern web technologies.">
+  <meta name="theme-color" content="#5A8F80" id="theme-color-meta">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-inner container">
-      <div class="logo">Shawn</div>
+  <header class="navbar-wrapper">
+    <nav class="nav-inner container">
+      <a href="#" class="logo" aria-label="Shawn Home">
+        <span class="logo-text">Shawn</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <!-- Desktop Links -->
       <div class="nav-links">
-        <a href="#projects">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-btn" aria-label="Dark mode toggle">🌙</button>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#pulse" class="nav-link">Pulse Bot</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-btn" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-btn" class="icon-btn mobile-only" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="menu-open-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="menu-close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-drawer" aria-hidden="true">
+      <div class="mobile-links">
+        <a href="#work" class="mobile-link">Work</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#pulse" class="mobile-link">Pulse Bot</a>
+        <a href="#contact" class="mobile-link">Contact</a>
       </div>
     </div>
-  </nav>
+  </header>
 
   <main>
-
     <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="container">
-        <p class="hero-tag">Frontend Developer & Designer</p>
-        <h1 class="hero-name">Shawn</h1>
-        <p class="hero-role">Building thoughtful, pixel-perfect web experiences.</p>
-        <p class="hero-bio">
-          I'm a frontend developer who loves turning designs into clean, responsive code.
-          Based in your city — available for freelance and full-time work.
-        </p>
-        <div class="hero-cats">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#projects" class="btn">View projects →</a>
+    <section class="hero" id="home">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <!-- Availability Pill -->
+          <div class="status-pill reveal">
+            <span class="status-indicator">
+              <span class="status-dot"></span>
+              <span class="status-ping"></span>
+            </span>
+            <span class="status-text">Available for freelance & full-time roles</span>
+          </div>
+
+          <h1 class="hero-name reveal">
+            Hi, I’m <span class="gradient-text">Shawn</span>.
+          </h1>
+
+          <p class="hero-role reveal">
+            Frontend Developer &amp; UI/UX Enthusiast crafting clean, responsive, and tactile web interfaces.
+          </p>
+
+          <p class="hero-bio reveal">
+            Passionate about transforming creative design systems into accessible, fluid digital products. Based in Kerala, India — obsessed with design fidelity, micro-interactions, and performant web architecture.
+          </p>
+
+          <div class="hero-cta reveal">
+            <a href="#work" class="btn btn-primary">
+              <span>View Projects</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">Get in touch</a>
+            <button class="btn btn-ghost copy-email-btn" data-email="shawnsubin@gmail.com" title="Copy email address">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <div class="hero-socials reveal">
+            <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shawn-subin-58728137b/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:shawnsubin@gmail.com" class="social-link" title="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>shawnsubin@gmail.com</span>
+            </a>
+          </div>
         </div>
+
+        <!-- Hero Decorative Code/Visual Card -->
+        <div class="hero-visual reveal">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">developer.shawn.config</span>
+              <span class="terminal-badge">READY</span>
+            </div>
+            <div class="terminal-body">
+              <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
+              <div class="code-line indent-1"><span class="code-prop">name</span>: <span class="code-str">'Shawn Subin'</span>,</div>
+              <div class="code-line indent-1"><span class="code-prop">specialty</span>: [<span class="code-str">'Frontend'</span>, <span class="code-str">'UI/UX Design'</span>],</div>
+              <div class="code-line indent-1"><span class="code-prop">stack</span>: [<span class="code-str">'HTML5'</span>, <span class="code-str">'Modern CSS'</span>, <span class="code-str">'JavaScript'</span>, <span class="code-str">'React'</span>, <span class="code-str">'Python'</span>],</div>
+              <div class="code-line indent-1"><span class="code-prop">focus</span>: <span class="code-str">'Accessible, performant, elegant UI'</span>,</div>
+              <div class="code-line indent-1"><span class="code-prop">status</span>: <span class="code-str">'Available for hire 🚀'</span></div>
+              <div class="code-line">};</div>
+              <div class="code-line prompt-line"><span class="code-prompt">$</span> npm run build-future <span class="cursor-blink">|</span></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section class="section" id="projects">
+    <!-- WORK / PROJECTS SECTION -->
+    <section class="section" id="work">
       <div class="container">
-        <p class="section-label">01 — Work</p>
-        <h2 class="section-title">Projects</h2>
+        <div class="section-header reveal">
+          <span class="section-label">01 — Selected Works</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">A blend of user experience design, frontend architecture, and automated backend scripts.</p>
+        </div>
+
         <div class="projects-grid">
 
           <!-- Project 1: Tide -->
-          <article class="card reveal">
-            <span class="card-tag">UI / UX Design</span>
-            <h3 class="card-title">Tide</h3>
-            <p class="card-desc">A complete task-manager app design built in Figma: a token-based design system, seven screens, and a clickable prototype.</p>
-            <div class="card-meta">
-              <span class="chip">Figma</span>
-              <span class="chip">Design System</span>
+          <article class="card project-card reveal">
+            <div class="card-preview tide-preview">
+              <div class="preview-badge">UI / UX Design</div>
+              <div class="mockup-header">
+                <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+                <span class="mockup-bar">tide-task-manager.figma</span>
+              </div>
+              <div class="mockup-content">
+                <div class="tide-ui-mock">
+                  <div class="tide-sidebar">
+                    <div class="tide-line short"></div>
+                    <div class="tide-line"></div>
+                    <div class="tide-line"></div>
+                  </div>
+                  <div class="tide-main">
+                    <div class="tide-card-item accent"></div>
+                    <div class="tide-card-item"></div>
+                    <div class="tide-card-item"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <a href="https://www.figma.com/proto/mzOKXO59WFRMKNbLL81PGW/Tide-Task-Manager?node-id=1-558&t=laGi7GAkVt4vsVjt-1" target="_blank" rel="noopener" class="card-link">View prototype →</a>
+
+            <div class="card-body">
+              <div class="card-meta-top">
+                <span class="card-tag">Figma Prototype</span>
+                <span class="card-year">2026</span>
+              </div>
+              <h3 class="card-title">Tide — Task Manager App</h3>
+              <p class="card-desc">
+                A complete task-manager application design crafted in Figma. Includes a scalable token-based design system, 7 high-fidelity interactive screens, and a fully clickable user journey prototype.
+              </p>
+              <div class="chips-list">
+                <span class="chip">Figma</span>
+                <span class="chip">Design Tokens</span>
+                <span class="chip">UI/UX</span>
+                <span class="chip">Interactive Prototype</span>
+              </div>
+              <div class="card-footer">
+                <a href="https://www.figma.com/proto/mzOKXO59WFRMKNbLL81PGW/Tide-Task-Manager?node-id=1-558&t=laGi7GAkVt4vsVjt-1" target="_blank" rel="noopener noreferrer" class="btn btn-card-link">
+                  <span>View Prototype</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
           </article>
 
-          <!-- Project 2: Folio (this site) -->
-          <article class="card reveal">
-            <span class="card-tag">Frontend Development</span>
-            <h3 class="card-title">Folio</h3>
-            <p class="card-desc">A fully responsive portfolio site with dark mode, scroll reveal, and back-to-top — built from scratch with HTML, CSS, and JS.</p>
-            <div class="card-meta">
-              <span class="chip">HTML/CSS</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">Responsive</span>
+          <!-- Project 2: Folio -->
+          <article class="card project-card reveal">
+            <div class="card-preview folio-preview">
+              <div class="preview-badge">Frontend Architecture</div>
+              <div class="mockup-header">
+                <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+                <span class="mockup-bar">folio.shawn.dev</span>
+              </div>
+              <div class="mockup-content">
+                <div class="folio-ui-mock">
+                  <div class="folio-mock-nav"></div>
+                  <div class="folio-mock-hero">
+                    <div class="folio-mock-title"></div>
+                    <div class="folio-mock-sub"></div>
+                  </div>
+                  <div class="folio-mock-grid">
+                    <div></div><div></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <a href="#" class="card-link">Live demo →</a>
+
+            <div class="card-body">
+              <div class="card-meta-top">
+                <span class="card-tag">Web Development</span>
+                <span class="card-year">2026</span>
+              </div>
+              <h3 class="card-title">Folio — Personal Website</h3>
+              <p class="card-desc">
+                High-performance portfolio designed and engineered from scratch with zero heavy frameworks. Features system-aware dark mode, intersection scroll reveal animations, glassmorphic UI, and responsive layout.
+              </p>
+              <div class="chips-list">
+                <span class="chip">HTML5</span>
+                <span class="chip">Modern CSS</span>
+                <span class="chip">Vanilla JS</span>
+                <span class="chip">A11y</span>
+              </div>
+              <div class="card-footer">
+                <a href="#home" class="btn btn-card-link">
+                  <span>Current Site</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </a>
+                <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener noreferrer" class="btn btn-card-ghost" title="Source repository">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>Code</span>
+                </a>
+              </div>
+            </div>
           </article>
 
-          <!-- Project 3: Pulse (future project) -->
-          <article class="card reveal">
-            <span class="card-tag">Python / Backend</span>
-            <h3 class="card-title">Pulse</h3>
-            <p class="card-desc">A health habit tracker bot built with Python — coming soon in Session 03. This slot is ready for your next big project.</p>
-            <div class="card-meta">
-              <span class="chip">Python</span>
-              <span class="chip">APIs</span>
+          <!-- Project 3: Pulse -->
+          <article class="card project-card reveal">
+            <div class="card-preview pulse-preview">
+              <div class="preview-badge">Python &amp; CI/CD</div>
+              <div class="mockup-header">
+                <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+                <span class="mockup-bar">bot.py &bull; GitHub Actions</span>
+              </div>
+              <div class="mockup-content">
+                <div class="pulse-ui-mock">
+                  <div class="terminal-line"><span class="highlight">PULSE</span> — Daily Summary</div>
+                  <div class="terminal-line dim">&gt; Fetching wttr.in &amp; zenquotes.io...</div>
+                  <div class="terminal-line success">&gt; Daily build success [8:00 AM IST]</div>
+                </div>
+              </div>
             </div>
-            <a href="#" class="card-link">Learn more →</a>
+
+            <div class="card-body">
+              <div class="card-meta-top">
+                <span class="card-tag">Automation</span>
+                <span class="card-year">2026</span>
+              </div>
+              <h3 class="card-title">Pulse — Daily Summary Bot</h3>
+              <p class="card-desc">
+                An automated Python daemon running daily via GitHub Actions. Fetches live meteorological conditions for Thiruvananthapuram, aggregates motivational wisdom via REST APIs, and exports daily summaries.
+              </p>
+              <div class="chips-list">
+                <span class="chip">Python 3.11</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">GitHub Actions</span>
+                <span class="chip">Automation</span>
+              </div>
+              <div class="card-footer">
+                <a href="#pulse" class="btn btn-card-link">
+                  <span>See Live Widget</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener noreferrer" class="btn btn-card-ghost" title="Source repository">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>Code</span>
+                </a>
+              </div>
+            </div>
           </article>
 
         </div>
@@ -91,78 +312,314 @@
     <!-- SKILLS SECTION -->
     <section class="section section-alt" id="skills">
       <div class="container">
-        <p class="section-label">02 — Expertise</p>
-        <h2 class="section-title">Skills & tools</h2>
-        <div class="skills-list">
+        <div class="section-header reveal">
+          <span class="section-label">02 — Expertise</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-subtitle">The tools and frameworks I leverage to bring engaging web concepts into production.</p>
+        </div>
 
-          <div class="skill reveal">
-            <div class="skill-head">
-              <span class="skill-name">HTML &amp; CSS</span>
-              <span class="skill-pct">90%</span>
+        <div class="skills-grid">
+          <!-- Skill Category: Frontend -->
+          <div class="skill-category-card reveal">
+            <div class="skill-category-header">
+              <div class="category-icon frontend-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h3 class="category-title">Frontend Development</h3>
             </div>
-            <div class="skill-track">
-              <div class="skill-fill" style="--w: 90%; background: var(--pri-high);"></div>
+
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">HTML5 &amp; Semantic Web</span>
+                  <span class="skill-badge">90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="90%" style="--target-width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Modern CSS &amp; Responsive Layouts</span>
+                  <span class="skill-badge">88%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="88%" style="--target-width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">JavaScript (ES6+)</span>
+                  <span class="skill-badge">78%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="78%" style="--target-width: 78%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">React.js Ecosystem</span>
+                  <span class="skill-badge">65%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="65%" style="--target-width: 65%;"></div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="skill reveal">
-            <div class="skill-head">
-              <span class="skill-name">JavaScript</span>
-              <span class="skill-pct">75%</span>
+          <!-- Skill Category: UI/UX & Tools -->
+          <div class="skill-category-card reveal">
+            <div class="skill-category-header">
+              <div class="category-icon design-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+              </div>
+              <h3 class="category-title">UI/UX &amp; Prototyping</h3>
             </div>
-            <div class="skill-track">
-              <div class="skill-fill" style="--w: 75%; background: var(--pri-med);"></div>
+
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Figma &amp; Wireframing</span>
+                  <span class="skill-badge">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="85%" style="--target-width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Design Systems &amp; Tokens</span>
+                  <span class="skill-badge">80%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="80%" style="--target-width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">User Flow &amp; Interactive Prototyping</span>
+                  <span class="skill-badge">82%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="82%" style="--target-width: 82%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Accessibility (WCAG Standards)</span>
+                  <span class="skill-badge">75%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="75%" style="--target-width: 75%;"></div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="skill reveal">
-            <div class="skill-head">
-              <span class="skill-name">Figma</span>
-              <span class="skill-pct">85%</span>
+          <!-- Skill Category: Backend & Workflow -->
+          <div class="skill-category-card reveal">
+            <div class="skill-category-header">
+              <div class="category-icon backend-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+              </div>
+              <h3 class="category-title">Backend, APIs &amp; DevOps</h3>
             </div>
-            <div class="skill-track">
-              <div class="skill-fill" style="--w: 85%; background: var(--pri-low);"></div>
+
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Python Scripting &amp; Automation</span>
+                  <span class="skill-badge">72%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="72%" style="--target-width: 72%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">REST APIs &amp; Async Data</span>
+                  <span class="skill-badge">76%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="76%" style="--target-width: 76%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">Git &amp; GitHub Version Control</span>
+                  <span class="skill-badge">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="85%" style="--target-width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-info">
+                  <span class="skill-title">GitHub Actions &amp; CI/CD</span>
+                  <span class="skill-badge">68%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-progress="68%" style="--target-width: 68%;"></div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="skill reveal">
-            <div class="skill-head">
-              <span class="skill-name">React</span>
-              <span class="skill-pct">60%</span>
+    <!-- LIVE PULSE BOT INTERACTIVE SHOWCASE -->
+    <section class="section" id="pulse">
+      <div class="container">
+        <div class="pulse-showcase-wrapper reveal">
+          <div class="pulse-info">
+            <span class="section-label">Live Integration</span>
+            <h2 class="section-title">Pulse Daemon in Action</h2>
+            <p class="pulse-text">
+              Built with Python and automated via GitHub Actions cron (<code class="inline-code">daily.yml</code>). It triggers every morning at 8:00 AM IST to fetch live weather reports and curated daily inspiration.
+            </p>
+            <div class="pulse-specs">
+              <div class="spec-item">
+                <span class="spec-label">Location Target:</span>
+                <span class="spec-value">Thiruvananthapuram, IN</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Execution Cadence:</span>
+                <span class="spec-value">Daily @ 02:30 UTC (08:00 AM IST)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">APIs Used:</span>
+                <span class="spec-value">wttr.in &bull; zenquotes.io</span>
+              </div>
             </div>
-            <div class="skill-track">
-              <div class="skill-fill" style="--w: 60%; background: var(--pri-high);"></div>
-            </div>
+            <button id="fetch-pulse-btn" class="btn btn-secondary pulse-action-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span>Refresh Live Feed</span>
+            </button>
           </div>
 
+          <div class="pulse-terminal">
+            <div class="terminal-bar">
+              <span class="terminal-status-light"></span>
+              <span class="terminal-filename">PULSE - Daily Summary Output</span>
+              <span class="terminal-tag">LIVE FEED</span>
+            </div>
+            <div class="pulse-output-content" id="pulse-output">
+              <p class="terminal-dim"># Loading live daily summary...</p>
+              <div class="pulse-box">
+                <div class="pulse-row"><span class="pulse-key">Date:</span> <span id="pulse-date" class="pulse-val">Fetching...</span></div>
+                <div class="pulse-row"><span class="pulse-key">Weather:</span> <span id="pulse-weather" class="pulse-val">Fetching...</span></div>
+                <div class="pulse-row quote-row"><span class="pulse-key">Quote:</span> <blockquote id="pulse-quote" class="pulse-quote-text">Fetching inspirational quote...</blockquote></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section class="section" id="contact">
+    <section class="section section-alt" id="contact">
       <div class="container">
-        <p class="section-label">03 — Connect</p>
-        <h2 class="section-title">Get in touch</h2>
-        <div class="contact-grid">
-          <a href="mailto:hello@yourname.com" class="contact-link btn">📧 shawnsubin@gmail.com</a>
-          <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener" class="contact-link btn">🐙 GitHub</a>
-          <a href="https://www.linkedin.com/in/shawn-subin-58728137b/" target="_blank" rel="noopener" class="contact-link btn">🔗 LinkedIn</a>
+        <div class="section-header reveal">
+          <span class="section-label">03 — Connect</span>
+          <h2 class="section-title">Let's Build Something Great</h2>
+          <p class="section-subtitle">Have an exciting idea, an open frontend role, or a project collaboration in mind? Reach out anytime!</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-cards-grid">
+            
+            <!-- Email Card -->
+            <div class="contact-card reveal">
+              <div class="contact-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <h3 class="contact-card-title">Email</h3>
+              <p class="contact-card-desc">Preferred for in-depth conversations, freelance inquiries, and job opportunities.</p>
+              <div class="contact-card-actions">
+                <a href="mailto:shawnsubin@gmail.com" class="btn btn-primary btn-sm">
+                  <span>Send Email</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <button class="btn btn-ghost btn-sm copy-email-btn" data-email="shawnsubin@gmail.com">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-card reveal">
+              <div class="contact-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <h3 class="contact-card-title">GitHub</h3>
+              <p class="contact-card-desc">Explore public repositories, code experiments, open source contributions, and automation scripts.</p>
+              <div class="contact-card-actions">
+                <a href="https://github.com/Shawn-Subin" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>@Shawn-Subin</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-card reveal">
+              <div class="contact-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <h3 class="contact-card-title">LinkedIn</h3>
+              <p class="contact-card-desc">Connect for professional networking, industry discussions, or career updates.</p>
+              <div class="contact-card-actions">
+                <a href="https://www.linkedin.com/in/shawn-subin-58728137b/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>Connect</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Shawn. Built with HTML, CSS, and ☕.</p>
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#" class="logo footer-logo">
+          <span class="logo-text">Shawn</span>
+          <span class="logo-dot"></span>
+        </a>
+        <p class="footer-copy">&copy; 2026 Shawn Subin. Crafted with precision, modern CSS &amp; vanilla JS.</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#pulse">Pulse</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button id="to-top" class="to-top" aria-label="Back to top">↑</button>
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="to-top" class="to-top-btn" aria-label="Back to top" title="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
