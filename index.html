@@ -486,49 +486,224 @@
     <!-- LIVE PULSE BOT INTERACTIVE SHOWCASE -->
     <section class="section" id="pulse">
       <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header reveal">
+          <span class="section-label">03 — Cloud Automation &amp; CI/CD</span>
+          <h2 class="section-title">Pulse — Daily Bot Pipeline</h2>
+          <p class="section-subtitle">
+            An autonomous serverless daemon built with Python and GitHub Actions. Runs scheduled cloud workflows daily to aggregate live meteorology, motivational wisdom, and build artifacts.
+          </p>
+        </div>
+
+        <!-- Pulse Metrics KPI Row -->
+        <div class="pulse-metrics-grid reveal">
+          <div class="pulse-metric-card">
+            <div class="metric-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="metric-details">
+              <span class="metric-val">08:00 AM IST</span>
+              <span class="metric-lbl">Daily Cron Cadence</span>
+            </div>
+          </div>
+
+          <div class="pulse-metric-card">
+            <div class="metric-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"></path><path d="m4.93 10.93 1.41 1.41"></path><path d="M2 18h2"></path><path d="M20 18h2"></path><path d="m19.07 10.93-1.41 1.41"></path><path d="M22 22H2"></path><path d="m8 22 4-10 4 10"></path></svg>
+            </div>
+            <div class="metric-details">
+              <span class="metric-val">Serverless</span>
+              <span class="metric-lbl">GitHub Actions Runner</span>
+            </div>
+          </div>
+
+          <div class="pulse-metric-card">
+            <div class="metric-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+            </div>
+            <div class="metric-details">
+              <span class="metric-val">Dual REST APIs</span>
+              <span class="metric-lbl">wttr.in &amp; zenquotes.io</span>
+            </div>
+          </div>
+
+          <div class="pulse-metric-card">
+            <div class="metric-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <div class="metric-details">
+              <span class="metric-val">100% Automated</span>
+              <span class="metric-lbl">Zero Manual Maintenance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pulse Showcase Wrapper (Info + Tabbed Terminal) -->
         <div class="pulse-showcase-wrapper reveal">
           <div class="pulse-info">
-            <span class="section-label">Live Integration</span>
-            <h2 class="section-title">Pulse Daemon in Action</h2>
+            <div class="pulse-badge-row">
+              <span class="live-pulse-dot"></span>
+              <span class="pulse-badge-text">DAEMON ACTIVE</span>
+            </div>
+            <h3 class="pulse-card-title">Real-Time Digest Feed</h3>
             <p class="pulse-text">
-              Built with Python and automated via GitHub Actions cron (<code class="inline-code">daily.yml</code>). It triggers every morning at 8:00 AM IST to fetch live weather reports and curated daily inspiration.
+              The daemon executes via Ubuntu runners on GitHub, queries remote REST endpoints with fallback resilience, compiles a formatted Markdown digest, and writes <code class="inline-code">daily_summary.txt</code>.
             </p>
+            
             <div class="pulse-specs">
               <div class="spec-item">
                 <span class="spec-label">Location Target:</span>
                 <span class="spec-value">Thiruvananthapuram, IN</span>
               </div>
               <div class="spec-item">
-                <span class="spec-label">Execution Cadence:</span>
-                <span class="spec-value">Daily @ 02:30 UTC (08:00 AM IST)</span>
+                <span class="spec-label">Cron Schedule:</span>
+                <span class="spec-value">30 2 * * * (08:00 AM IST)</span>
               </div>
               <div class="spec-item">
-                <span class="spec-label">APIs Used:</span>
-                <span class="spec-value">wttr.in &bull; zenquotes.io</span>
+                <span class="spec-label">Artifact Output:</span>
+                <span class="spec-value">daily_summary.txt</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Runtime Engine:</span>
+                <span class="spec-value">Python 3.11</span>
               </div>
             </div>
-            <button id="fetch-pulse-btn" class="btn btn-secondary pulse-action-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-              <span>Refresh Live Feed</span>
-            </button>
+
+            <div class="pulse-actions-row">
+              <button id="fetch-pulse-btn" class="btn btn-primary pulse-action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                <span>Refresh Live Digest</span>
+              </button>
+              <a href="https://github.com/Shawn-Subin/folio/blob/main/bot.py" target="_blank" rel="noopener noreferrer" class="btn btn-secondary pulse-action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>View on GitHub</span>
+              </a>
+            </div>
           </div>
 
+          <!-- Interactive Tabbed Terminal -->
           <div class="pulse-terminal">
             <div class="terminal-bar">
-              <span class="terminal-status-light"></span>
-              <span class="terminal-filename">PULSE - Daily Summary Output</span>
-              <span class="terminal-tag">LIVE FEED</span>
+              <div class="terminal-tabs">
+                <button class="terminal-tab active" data-tab="live">Live Digest</button>
+                <button class="terminal-tab" data-tab="bot">bot.py</button>
+                <button class="terminal-tab" data-tab="workflow">daily.yml</button>
+              </div>
+              <span class="terminal-tag" id="terminal-badge">LIVE 200 OK</span>
             </div>
-            <div class="pulse-output-content" id="pulse-output">
-              <p class="terminal-dim"># Loading live daily summary...</p>
-              <div class="pulse-box">
-                <div class="pulse-row"><span class="pulse-key">Date:</span> <span id="pulse-date" class="pulse-val">Fetching...</span></div>
-                <div class="pulse-row"><span class="pulse-key">Weather:</span> <span id="pulse-weather" class="pulse-val">Fetching...</span></div>
-                <div class="pulse-row quote-row"><span class="pulse-key">Quote:</span> <blockquote id="pulse-quote" class="pulse-quote-text">Fetching inspirational quote...</blockquote></div>
+
+            <!-- Tab 1: Live Output -->
+            <div class="pulse-tab-content active" id="tab-live">
+              <div class="pulse-output-content" id="pulse-output">
+                <div class="terminal-command-line">
+                  <span class="prompt-sym">$</span> python bot.py --source live
+                </div>
+                <div class="pulse-box">
+                  <div class="pulse-row"><span class="pulse-key">Cadence:</span> <span class="pulse-val">08:00 AM IST (Daily Scheduled)</span></div>
+                  <div class="pulse-row"><span class="pulse-key">Date:</span> <span id="pulse-date" class="pulse-val">Loading...</span></div>
+                  <div class="pulse-row"><span class="pulse-key">Weather:</span> <span id="pulse-weather" class="pulse-val">Fetching live coastal climate...</span></div>
+                  <div class="pulse-row quote-row"><span class="pulse-key">Quote:</span> <blockquote id="pulse-quote" class="pulse-quote-text">Fetching inspirational quote...</blockquote></div>
+                  <div class="pulse-row status-success-row">
+                    <span class="pulse-dot-green"></span>
+                    <span class="pulse-status-msg">&gt; Artifact written to daily_summary.txt [Success]</span>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <!-- Tab 2: Python bot.py code -->
+            <div class="pulse-tab-content" id="tab-bot">
+              <div class="pulse-code-content">
+                <pre><code><span class="code-comment"># Pulse - Daily Summary Bot</span>
+<span class="code-keyword">import</span> requests
+<span class="code-keyword">from</span> datetime <span class="code-keyword">import</span> datetime
+
+<span class="code-keyword">def</span> <span class="code-func">get_weather</span>(city=<span class="code-str">"Thiruvananthapuram"</span>):
+    url = f<span class="code-str">"https://wttr.in/{city}?format=3"</span>
+    res = requests.get(url, timeout=10)
+    <span class="code-keyword">return</span> res.text.strip()
+
+<span class="code-keyword">def</span> <span class="code-func">get_quote</span>():
+    url = <span class="code-str">"https://zenquotes.io/api/random"</span>
+    data = requests.get(url, timeout=10).json()
+    <span class="code-keyword">return</span> f<span class="code-str">"{data[0]['q']} — {data[0]['a']}"</span>
+
+<span class="code-keyword">def</span> <span class="code-func">run</span>():
+    summary = build_summary()
+    <span class="code-keyword">with</span> open(<span class="code-str">"daily_summary.txt"</span>, <span class="code-str">"w"</span>) <span class="code-keyword">as</span> f:
+        f.write(summary)</code></pre>
+              </div>
+            </div>
+
+            <!-- Tab 3: daily.yml GitHub Actions -->
+            <div class="pulse-tab-content" id="tab-workflow">
+              <div class="pulse-code-content">
+                <pre><code><span class="code-comment"># GitHub Actions Cron Workflow</span>
+<span class="code-prop">name</span>: Pulse - Daily Summary Bot
+<span class="code-prop">on</span>:
+  <span class="code-prop">schedule</span>:
+    - <span class="code-prop">cron</span>: <span class="code-str">'30 2 * * *'</span>  <span class="code-comment"># 8:00 AM IST</span>
+  <span class="code-prop">workflow_dispatch</span>:
+
+<span class="code-prop">jobs</span>:
+  <span class="code-prop">run-pulse</span>:
+    <span class="code-prop">runs-on</span>: ubuntu-latest
+    <span class="code-prop">steps</span>:
+      - <span class="code-prop">uses</span>: actions/checkout@v4
+      - <span class="code-prop">uses</span>: actions/setup-python@v5
+        <span class="code-prop">with</span>: { <span class="code-prop">python-version</span>: <span class="code-str">'3.11'</span> }
+      - <span class="code-prop">run</span>: pip install -r requirements.txt
+      - <span class="code-prop">run</span>: python bot.py
+      - <span class="code-prop">uses</span>: actions/upload-artifact@v4
+        <span class="code-prop">with</span>:
+          <span class="code-prop">name</span>: daily-summary
+          <span class="code-prop">path</span>: daily_summary.txt</code></pre>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- 4-Stage Architecture Pipeline Cards -->
+        <div class="pulse-pipeline-grid reveal">
+          <div class="pipeline-step-card">
+            <span class="pipeline-step-num">01</span>
+            <div class="pipeline-step-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h4>Cron Trigger</h4>
+            </div>
+            <p>GitHub Actions schedules a headless Ubuntu runner at 02:30 UTC / 08:00 AM IST every morning automatically.</p>
+          </div>
+
+          <div class="pipeline-step-card">
+            <span class="pipeline-step-num">02</span>
+            <div class="pipeline-step-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <h4>REST Ingestion</h4>
+            </div>
+            <p>Queries wttr.in weather for Thiruvananthapuram and ZenQuotes with automated HTTP timeout guardrails.</p>
+          </div>
+
+          <div class="pipeline-step-card">
+            <span class="pipeline-step-num">03</span>
+            <div class="pipeline-step-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+              <h4>Format Engine</h4>
+            </div>
+            <p>Normalizes API payloads, compiles weather metrics and inspirational quotes with localized timestamps.</p>
+          </div>
+
+          <div class="pipeline-step-card">
+            <span class="pipeline-step-num">04</span>
+            <div class="pipeline-step-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <h4>Artifact Export</h4>
+            </div>
+            <p>Writes daily_summary.txt and securely uploads the build artifact to GitHub runner persistent storage.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -536,7 +711,7 @@
     <section class="section section-alt" id="contact">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-label">03 — Connect</span>
+          <span class="section-label">04 — Connect</span>
           <h2 class="section-title">Let's Build Something Great</h2>
           <p class="section-subtitle">Have an exciting idea, an open frontend role, or a project collaboration in mind? Reach out anytime!</p>
         </div>

@@ -174,8 +174,8 @@ function initScrollAnimations() {
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px 80px 0px'
   });
 
   revealElements.forEach(el => observer.observe(el));
@@ -340,6 +340,37 @@ function initPulseWidget() {
 
   // Initial trigger
   fetchPulseData();
+
+  // Tab switching for Pulse terminal
+  const terminalTabs = document.querySelectorAll('.terminal-tab');
+  const tabContents = document.querySelectorAll('.pulse-tab-content');
+  const terminalBadge = document.querySelector('#terminal-badge');
+
+  terminalTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      terminalTabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetTabId = `tab-${tab.getAttribute('data-tab')}`;
+      const targetContent = document.getElementById(targetTabId);
+      if (targetContent) targetContent.classList.add('active');
+
+      if (terminalBadge) {
+        const tabType = tab.getAttribute('data-tab');
+        if (tabType === 'live') {
+          terminalBadge.textContent = 'LIVE 200 OK';
+          terminalBadge.style.color = '#38BDF8';
+        } else if (tabType === 'bot') {
+          terminalBadge.textContent = 'PYTHON 3.11';
+          terminalBadge.style.color = '#F59E0B';
+        } else if (tabType === 'workflow') {
+          terminalBadge.textContent = 'WORKFLOW CI';
+          terminalBadge.style.color = '#10B981';
+        }
+      }
+    });
+  });
 
   if (refreshBtn) {
     refreshBtn.addEventListener('click', () => {
