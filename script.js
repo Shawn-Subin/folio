@@ -289,35 +289,47 @@ function initPulseWidget() {
   async function fetchPulseData() {
     updateDate();
 
-    if (weatherEl) weatherEl.textContent = "Fetching weather for Thiruvananthapuram...";
+    if (weatherEl) weatherEl.textContent = "Fetching live coastal weather...";
     if (quoteEl) quoteEl.textContent = "Fetching inspirational quote...";
 
-    // 1. Weather
+    // 1. Weather: Use Open-Meteo for CORS-safe, JSON API without raw HTML issues
     try {
       const weatherController = new AbortController();
-      const timeoutId = setTimeout(() => weatherController.abort(), 4000);
+      const timeoutId = setTimeout(() => weatherController.abort(), 3500);
       
-      const res = await fetch('https://wttr.in/Thiruvananthapuram?format=3', {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=8.5241&longitude=76.9366&current_weather=true', {
         signal: weatherController.signal
       });
       clearTimeout(timeoutId);
 
       if (res.ok) {
-        const text = await res.text();
-        if (weatherEl) weatherEl.textContent = text.trim();
+        const data = await res.json();
+        if (data && data.current_weather) {
+          const temp = Math.round(data.current_weather.temperature);
+          const code = data.current_weather.weathercode;
+          let cond = 'Clear Sky ☀️';
+          if (code >= 1 && code <= 3) cond = 'Partly Cloudy ⛅';
+          else if (code >= 45 && code <= 48) cond = 'Misty Fog 🌫️';
+          else if (code >= 51 && code <= 67) cond = 'Light Rain 🌦️';
+          else if (code >= 80 && code <= 82) cond = 'Rain Showers 🌧️';
+          else if (code >= 95) cond = 'Thunderstorm ⛈️';
+
+          if (weatherEl) weatherEl.textContent = `Thiruvananthapuram: ${cond} +${temp}°C`;
+        } else {
+          throw new Error('Invalid weather payload');
+        }
       } else {
         throw new Error('Weather status error');
       }
     } catch (e) {
-      if (weatherEl) weatherEl.textContent = "Thiruvananthapuram: ⛅ +29°C (Typical Coastal Tropical)";
+      if (weatherEl) weatherEl.textContent = "Thiruvananthapuram: ⛅ Partly Cloudy +29°C (Coastal Tropical)";
     }
 
-    // 2. Quote
+    // 2. Quote: With strict anti-HTML validation
     try {
       const quoteController = new AbortController();
-      const timeoutId = setTimeout(() => quoteController.abort(), 4000);
+      const timeoutId = setTimeout(() => quoteController.abort(), 3000);
 
-      // Try fetching quote
       const res = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://zenquotes.io/api/random'), {
         signal: quoteController.signal
       });
@@ -326,12 +338,12 @@ function initPulseWidget() {
       if (res.ok) {
         const data = await res.json();
         const parsed = JSON.parse(data.contents);
-        if (parsed && parsed[0]) {
+        if (parsed && parsed[0] && parsed[0].q && !parsed[0].q.includes('<') && parsed[0].q.length < 250) {
           if (quoteEl) quoteEl.textContent = `“${parsed[0].q}” — ${parsed[0].a}`;
           return;
         }
       }
-      throw new Error('Quote parse error');
+      throw new Error('Quote error');
     } catch (e) {
       const randomFallback = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
       if (quoteEl) quoteEl.textContent = `“${randomFallback.q}” — ${randomFallback.a}`;

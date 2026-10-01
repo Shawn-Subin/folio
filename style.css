@@ -1261,6 +1261,8 @@ body.dark .btn-card-link:hover {
   overflow: hidden;
   font-family: var(--font-mono);
   color: var(--terminal-text);
+  display: flex;
+  flex-direction: column;
 }
 
 .terminal-bar {
@@ -1321,6 +1323,9 @@ body.dark .btn-card-link:hover {
   padding: var(--space-lg);
   font-size: 0.85rem;
   line-height: 1.6;
+  max-height: 380px;
+  overflow-y: auto;
+  word-break: break-word;
 }
 
 .terminal-command-line {
@@ -1352,10 +1357,12 @@ body.dark .btn-card-link:hover {
   color: #38BDF8;
   font-weight: 600;
   min-width: 70px;
+  flex-shrink: 0;
 }
 
 .pulse-val {
   color: #F8FAFC;
+  word-break: break-word;
 }
 
 .quote-row {
